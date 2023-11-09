@@ -6,19 +6,19 @@ import { CaretSortIcon, CheckIcon } from "@radix-ui/react-icons"
 import { PopoverProps } from "@radix-ui/react-popover"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/default/ui/button"
 import {
   Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
-} from "@/registry/new-york/ui/command"
+} from "@/registry/default/ui/command"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
+} from "@/registry/default/ui/popover"
 
 import { Preset } from "../data/presets"
 

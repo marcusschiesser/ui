@@ -8,9 +8,9 @@ test("transform import", async () => {
       filename: "test.ts",
       raw: `import * as React from "react"
 import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/registry/default/ui/button"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
+    import { Box } from "@/registry/default/box"
 
     import { cn } from "@/lib/utils"
     `,
@@ -33,9 +33,9 @@ import { Foo } from "bar"
       filename: "test.ts",
       raw: `import * as React from "react"
 import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/registry/default/ui/button"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
+    import { Box } from "@/registry/default/box"
 
     import { cn, foo, bar } from "@/lib/utils"
     import { bar } from "@/lib/utils/bar"
@@ -55,9 +55,9 @@ import { Foo } from "bar"
       filename: "test.ts",
       raw: `import * as React from "react"
 import { Foo } from "bar"
-    import { Button } from "@/registry/new-york/ui/button"
+    import { Button } from "@/registry/default/ui/button"
     import { Label} from "ui/label"
-    import { Box } from "@/registry/new-york/box"
+    import { Box } from "@/registry/default/box"
 
     import { cn } from "@/lib/utils"
     import { bar } from "@/lib/utils/bar"

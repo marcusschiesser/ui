@@ -4,13 +4,13 @@ import * as React from "react"
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons"
 import { useTheme } from "next-themes"
 
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/default/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/registry/new-york/ui/dropdown-menu"
+} from "@/registry/default/ui/dropdown-menu"
 
 export function ModeToggle() {
   const { setTheme } = useTheme()

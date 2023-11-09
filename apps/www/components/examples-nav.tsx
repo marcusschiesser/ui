@@ -5,43 +5,18 @@ import { usePathname } from "next/navigation"
 import { ArrowRightIcon } from "@radix-ui/react-icons"
 
 import { cn } from "@/lib/utils"
-import { ScrollArea, ScrollBar } from "@/registry/new-york/ui/scroll-area"
+import { ScrollArea, ScrollBar } from "@/registry/default/ui/scroll-area"
 
 const examples = [
   {
-    name: "Dashboard",
-    href: "/examples/dashboard",
-    code: "https://github.com/shadcn/ui/tree/main/apps/www/app/examples/dashboard",
-  },
-  {
-    name: "Cards",
-    href: "/examples/cards",
-    code: "https://github.com/shadcn/ui/tree/main/apps/www/app/examples/cards",
-  },
-  {
-    name: "Tasks",
-    href: "/examples/tasks",
-    code: "https://github.com/shadcn/ui/tree/main/apps/www/app/examples/tasks",
+    name: "Chat",
+    href: "/examples/chat",
+    code: "https://github.com/marcusschiesser/ui/tree/main/apps/www/app/examples/chat",
   },
   {
     name: "Playground",
     href: "/examples/playground",
-    code: "https://github.com/shadcn/ui/tree/main/apps/www/app/examples/playground",
-  },
-  {
-    name: "Forms",
-    href: "/examples/forms",
-    code: "https://github.com/shadcn/ui/tree/main/apps/www/app/examples/forms",
-  },
-  {
-    name: "Music",
-    href: "/examples/music",
-    code: "https://github.com/shadcn/ui/tree/main/apps/www/app/examples/music",
-  },
-  {
-    name: "Authentication",
-    href: "/examples/authentication",
-    code: "https://github.com/shadcn/ui/tree/main/apps/www/app/examples/authentication",
+    code: "https://github.com/marcusschiesser/ui/tree/main/apps/www/app/examples/playground",
   },
 ]
 
@@ -72,7 +47,7 @@ export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
         <ScrollBar orientation="horizontal" className="invisible" />
       </ScrollArea>
       <ExampleCodeLink
-        pathname={pathname === "/" ? "/examples/dashboard" : pathname}
+        pathname={pathname === "/" ? "/examples/chat" : pathname}
       />
     </div>
   )

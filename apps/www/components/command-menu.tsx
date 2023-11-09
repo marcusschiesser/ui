@@ -14,7 +14,7 @@ import { useTheme } from "next-themes"
 
 import { docsConfig } from "@/config/docs"
 import { cn } from "@/lib/utils"
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/default/ui/button"
 import {
   CommandDialog,
   CommandEmpty,
@@ -23,7 +23,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@/registry/new-york/ui/command"
+} from "@/registry/default/ui/command"
 
 export function CommandMenu({ ...props }: DialogProps) {
   const router = useRouter()

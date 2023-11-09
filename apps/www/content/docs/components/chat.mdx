@@ -1,0 +1,23 @@
+---
+title: Chat
+description: Components to build a chat app
+component: true
+---
+
+<ComponentPreview
+  name="chat-demo"
+  className="[&_.preview>[data-orientation=vertical]]:sm:max-w-[70%]"
+/>
+
+## Usage
+
+```tsx
+import { ChatInput, ChatMessages } from "@/components/ui/chat"
+```
+
+```tsx
+<>
+  <ChatMessages {...messagesProps} />
+  <ChatInput {...inputProps} />
+</>
+```

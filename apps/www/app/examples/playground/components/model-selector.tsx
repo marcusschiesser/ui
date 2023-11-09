@@ -6,7 +6,7 @@ import { PopoverProps } from "@radix-ui/react-popover"
 
 import { cn } from "@/lib/utils"
 import { useMutationObserver } from "@/hooks/use-mutation-observer"
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/default/ui/button"
 import {
   Command,
   CommandEmpty,
@@ -14,18 +14,18 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york/ui/command"
+} from "@/registry/default/ui/command"
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/registry/new-york/ui/hover-card"
-import { Label } from "@/registry/new-york/ui/label"
+} from "@/registry/default/ui/hover-card"
+import { Label } from "@/registry/default/ui/label"
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
+} from "@/registry/default/ui/popover"
 
 import { Model, ModelType } from "../data/models"
 

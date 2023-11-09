@@ -2,21 +2,21 @@ import { Metadata } from "next"
 import Image from "next/image"
 import { CounterClockwiseClockIcon } from "@radix-ui/react-icons"
 
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "@/registry/default/ui/button"
 import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
-} from "@/registry/new-york/ui/hover-card"
-import { Label } from "@/registry/new-york/ui/label"
-import { Separator } from "@/registry/new-york/ui/separator"
+} from "@/registry/default/ui/hover-card"
+import { Label } from "@/registry/default/ui/label"
+import { Separator } from "@/registry/default/ui/separator"
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/registry/new-york/ui/tabs"
-import { Textarea } from "@/registry/new-york/ui/textarea"
+} from "@/registry/default/ui/tabs"
+import { Textarea } from "@/registry/default/ui/textarea"
 
 import { CodeViewer } from "./components/code-viewer"
 import { MaxLengthSelector } from "./components/maxlength-selector"

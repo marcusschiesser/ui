@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
-import { Badge } from "@/registry/new-york/ui/badge"
+import { Badge } from "@/registry/default/ui/badge"
 
 export function MainNav() {
   const pathname = usePathname()
@@ -29,28 +29,6 @@ export function MainNav() {
           )}
         >
           Documentation
-        </Link>
-        <Link
-          href="/docs/components"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/docs/components")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          Components
-        </Link>
-        <Link
-          href="/themes"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/themes")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          Themes
         </Link>
         <Link
           href="/examples"
