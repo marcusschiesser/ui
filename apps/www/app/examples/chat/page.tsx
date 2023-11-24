@@ -27,7 +27,7 @@ export default function ChatPage() {
   return (
     <div className="mx-auto max-w-5xl space-y-4 p-4">
       <ChatMessages messages={sampleMessages} {...emptyProps} />
-      <ChatInput {...emptyProps} />
+      <ChatInput {...emptyProps} multiModal />
     </div>
   )
 }
