@@ -38,14 +38,14 @@ export default function Markdown({ content }: { content: string }) {
             </code>
           )
         },
-        pre({ node, className, ...props }) {
+        pre({ node, className, children, ...props }) {
           const match = /language-(\w+)/.exec(className || "")
 
           return (
             <CodeBlock
               key={Math.random()}
               language={(match && match[1]) || ""}
-              value={String(props.children).replace(/\n$/, "")}
+              value={String(children).replace(/\n$/, "")}
               {...props}
             />
           )
