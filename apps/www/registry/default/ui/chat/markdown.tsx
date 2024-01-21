@@ -21,8 +21,8 @@ export default function Markdown({ content }: { content: string }) {
         p({ children }) {
           return <p className="mb-2 last:mb-0">{children}</p>
         },
-        code({ node, inline, className, children, ...props }) {
-          if (children.length) {
+        code({ node, className, children, ...props }) {
+          if (Array.isArray(children) && children.length) {
             if (children[0] == "▍") {
               return (
                 <span className="mt-1 animate-pulse cursor-default">▍</span>
@@ -32,21 +32,20 @@ export default function Markdown({ content }: { content: string }) {
             children[0] = (children[0] as string).replace("`▍`", "▍")
           }
 
+          return (
+            <code className={className} {...props}>
+              {children}
+            </code>
+          )
+        },
+        pre({ node, className, ...props }) {
           const match = /language-(\w+)/.exec(className || "")
-
-          if (inline) {
-            return (
-              <code className={className} {...props}>
-                {children}
-              </code>
-            )
-          }
 
           return (
             <CodeBlock
               key={Math.random()}
               language={(match && match[1]) || ""}
-              value={String(children).replace(/\n$/, "")}
+              value={String(props.children).replace(/\n$/, "")}
               {...props}
             />
           )
