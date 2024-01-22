@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Button } from "../button";
-import FileUploader from "../file-uploader";
-import { Input } from "../input";
-import UploadImagePreview from "../upload-image-preview";
-import { ChatHandler } from "./chat.interface";
+import { useState } from "react"
+
+import { Button } from "../button"
+import FileUploader from "../file-uploader"
+import { Input } from "../input"
+import UploadImagePreview from "../upload-image-preview"
+import { ChatHandler } from "./chat.interface"
 
 export default function ChatInput(
   props: Pick<
@@ -15,44 +16,44 @@ export default function ChatInput(
     | "handleSubmit"
     | "handleInputChange"
   > & {
-    multiModal?: boolean;
-  },
+    multiModal?: boolean
+  }
 ) {
-  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState<string | null>(null)
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (imageUrl) {
       props.handleSubmit(e, {
         data: { imageUrl: imageUrl },
-      });
-      setImageUrl(null);
-      return;
+      })
+      setImageUrl(null)
+      return
     }
-    props.handleSubmit(e);
-  };
+    props.handleSubmit(e)
+  }
 
-  const onRemovePreviewImage = () => setImageUrl(null);
+  const onRemovePreviewImage = () => setImageUrl(null)
 
   const handleUploadImageFile = async (file: File) => {
     const base64 = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = (error) => reject(error);
-    });
-    setImageUrl(base64);
-  };
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => resolve(reader.result as string)
+      reader.onerror = (error) => reject(error)
+    })
+    setImageUrl(base64)
+  }
 
   const handleUploadFile = async (file: File) => {
     try {
       if (props.multiModal && file.type.startsWith("image/")) {
-        return await handleUploadImageFile(file);
+        return await handleUploadImageFile(file)
       }
-      props.onFileUpload?.(file);
+      props.onFileUpload?.(file)
     } catch (error: any) {
-      props.onFileError?.(error.message);
+      props.onFileError?.(error.message)
     }
-  };
+  }
 
   return (
     <form
@@ -80,5 +81,5 @@ export default function ChatInput(
         </Button>
       </div>
     </form>
-  );
+  )
 }

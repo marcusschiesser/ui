@@ -1,13 +1,14 @@
-import { XCircleIcon } from "lucide-react";
-import Image from "next/image";
+import Image from "next/image"
+import { XCircleIcon } from "lucide-react"
+
 import { cn } from "@/lib/utils"
 
 export default function UploadImagePreview({
   url,
   onRemove,
 }: {
-  url: string;
-  onRemove: () => void;
+  url: string
+  onRemove: () => void
 }) {
   return (
     <div className="relative w-20 h-20 group">
@@ -19,7 +20,7 @@ export default function UploadImagePreview({
       />
       <div
         className={cn(
-          "absolute -top-2 -right-2 w-6 h-6 z-10 bg-gray-500 text-white rounded-full hidden group-hover:block",
+          "absolute -top-2 -right-2 w-6 h-6 z-10 bg-gray-500 text-white rounded-full hidden group-hover:block"
         )}
       >
         <XCircleIcon
@@ -28,5 +29,5 @@ export default function UploadImagePreview({
         />
       </div>
     </div>
-  );
+  )
 }
