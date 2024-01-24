@@ -281,6 +281,9 @@ importers:
       remark-math:
         specifier: ^6.0.0
         version: 6.0.0
+      remark-parse:
+        specifier: '11'
+        version: 11.0.0
       sharp:
         specifier: ^0.31.3
         version: 0.31.3
