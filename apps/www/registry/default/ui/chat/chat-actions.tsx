@@ -1,13 +1,13 @@
-import { PauseCircle, RefreshCw } from "lucide-react";
+import { PauseCircle, RefreshCw } from "lucide-react"
 
-import { Button } from "../button";
-import { ChatHandler } from "./chat.interface";
+import { Button } from "../button"
+import { ChatHandler } from "./chat.interface"
 
 export default function ChatActions(
   props: Pick<ChatHandler, "stop" | "reload"> & {
-    showReload?: boolean;
-    showStop?: boolean;
-  },
+    showReload?: boolean
+    showStop?: boolean
+  }
 ) {
   return (
     <div className="space-x-4">
@@ -24,5 +24,5 @@ export default function ChatActions(
         </Button>
       )}
     </div>
-  );
+  )
 }

@@ -1,13 +1,13 @@
-import { Check, Copy } from "lucide-react";
+import { Check, Copy } from "lucide-react"
 
-import { Button } from "../button";
-import ChatAvatar from "./chat-avatar";
-import { Message } from "./chat.interface";
-import Markdown from "./markdown";
-import { useCopyToClipboard } from "./use-copy-to-clipboard";
+import { Button } from "../button"
+import ChatAvatar from "./chat-avatar"
+import { Message } from "./chat.interface"
+import Markdown from "./markdown"
+import { useCopyToClipboard } from "./use-copy-to-clipboard"
 
 export default function ChatMessage(chatMessage: Message) {
-  const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 });
+  const { isCopied, copyToClipboard } = useCopyToClipboard({ timeout: 2000 })
   return (
     <div className="flex items-start gap-4 pr-5 pt-5">
       <ChatAvatar role={chatMessage.role} />
@@ -29,5 +29,5 @@ export default function ChatMessage(chatMessage: Message) {
         </Button>
       </div>
     </div>
-  );
+  )
 }

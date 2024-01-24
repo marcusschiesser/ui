@@ -1,32 +1,32 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react"
 
-import ChatActions from "./chat-actions";
-import ChatMessage from "./chat-message";
-import { ChatHandler } from "./chat.interface";
+import ChatActions from "./chat-actions"
+import ChatMessage from "./chat-message"
+import { ChatHandler } from "./chat.interface"
 
 export default function ChatMessages(
-  props: Pick<ChatHandler, "messages" | "isLoading" | "reload" | "stop">,
+  props: Pick<ChatHandler, "messages" | "isLoading" | "reload" | "stop">
 ) {
-  const scrollableChatContainerRef = useRef<HTMLDivElement>(null);
-  const messageLength = props.messages.length;
-  const lastMessage = props.messages[messageLength - 1];
+  const scrollableChatContainerRef = useRef<HTMLDivElement>(null)
+  const messageLength = props.messages.length
+  const lastMessage = props.messages[messageLength - 1]
 
   const scrollToBottom = () => {
     if (scrollableChatContainerRef.current) {
       scrollableChatContainerRef.current.scrollTop =
-        scrollableChatContainerRef.current.scrollHeight;
+        scrollableChatContainerRef.current.scrollHeight
     }
-  };
+  }
 
   const isLastMessageFromAssistant =
-    messageLength > 0 && lastMessage?.role !== "user";
+    messageLength > 0 && lastMessage?.role !== "user"
   const showReload =
-    props.reload && !props.isLoading && isLastMessageFromAssistant;
-  const showStop = props.stop && props.isLoading;
+    props.reload && !props.isLoading && isLastMessageFromAssistant
+  const showStop = props.stop && props.isLoading
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messageLength, lastMessage]);
+    scrollToBottom()
+  }, [messageLength, lastMessage])
 
   return (
     <div className="w-full rounded-xl bg-white p-4 shadow-xl pb-0">
@@ -47,5 +47,5 @@ export default function ChatMessages(
         />
       </div>
     </div>
-  );
+  )
 }

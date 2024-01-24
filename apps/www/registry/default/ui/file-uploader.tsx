@@ -1,80 +1,82 @@
-"use client";
+"use client"
 
-import { Loader2, Paperclip } from "lucide-react";
-import { ChangeEvent, useState } from "react";
-import { buttonVariants } from "./button";
+import { ChangeEvent, useState } from "react"
+import { Loader2, Paperclip } from "lucide-react"
+
 import { cn } from "@/lib/utils"
+
+import { buttonVariants } from "./button"
 
 export interface FileUploaderProps {
   config?: {
-    inputId?: string;
-    fileSizeLimit?: number;
-    allowedExtensions?: string[];
-    checkExtension?: (extension: string) => string | null;
-    disabled: boolean;
-  };
-  onFileUpload: (file: File) => Promise<void>;
-  onFileError?: (errMsg: string) => void;
+    inputId?: string
+    fileSizeLimit?: number
+    allowedExtensions?: string[]
+    checkExtension?: (extension: string) => string | null
+    disabled: boolean
+  }
+  onFileUpload: (file: File) => Promise<void>
+  onFileError?: (errMsg: string) => void
 }
 
-const DEFAULT_INPUT_ID = "fileInput";
-const DEFAULT_FILE_SIZE_LIMIT = 1024 * 1024 * 50; // 50 MB
+const DEFAULT_INPUT_ID = "fileInput"
+const DEFAULT_FILE_SIZE_LIMIT = 1024 * 1024 * 50 // 50 MB
 
 export default function FileUploader({
   config,
   onFileUpload,
   onFileError,
 }: FileUploaderProps) {
-  const [uploading, setUploading] = useState(false);
+  const [uploading, setUploading] = useState(false)
 
-  const inputId = config?.inputId || DEFAULT_INPUT_ID;
-  const fileSizeLimit = config?.fileSizeLimit || DEFAULT_FILE_SIZE_LIMIT;
-  const allowedExtensions = config?.allowedExtensions;
+  const inputId = config?.inputId || DEFAULT_INPUT_ID
+  const fileSizeLimit = config?.fileSizeLimit || DEFAULT_FILE_SIZE_LIMIT
+  const allowedExtensions = config?.allowedExtensions
   const defaultCheckExtension = (extension: string) => {
     if (allowedExtensions && !allowedExtensions.includes(extension)) {
       return `Invalid file type. Please select a file with one of these formats: ${allowedExtensions!.join(
-        ",",
-      )}`;
+        ","
+      )}`
     }
-    return null;
-  };
-  const checkExtension = config?.checkExtension ?? defaultCheckExtension;
+    return null
+  }
+  const checkExtension = config?.checkExtension ?? defaultCheckExtension
 
   const isFileSizeExceeded = (file: File) => {
-    return file.size > fileSizeLimit;
-  };
+    return file.size > fileSizeLimit
+  }
 
   const resetInput = () => {
-    const fileInput = document.getElementById(inputId) as HTMLInputElement;
-    fileInput.value = "";
-  };
+    const fileInput = document.getElementById(inputId) as HTMLInputElement
+    fileInput.value = ""
+  }
 
   const onFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const file = e.target.files?.[0]
+    if (!file) return
 
-    setUploading(true);
-    await handleUpload(file);
-    resetInput();
-    setUploading(false);
-  };
+    setUploading(true)
+    await handleUpload(file)
+    resetInput()
+    setUploading(false)
+  }
 
   const handleUpload = async (file: File) => {
-    const onFileUploadError = onFileError || window.alert;
-    const fileExtension = file.name.split(".").pop() || "";
-    const extensionFileError = checkExtension(fileExtension);
+    const onFileUploadError = onFileError || window.alert
+    const fileExtension = file.name.split(".").pop() || ""
+    const extensionFileError = checkExtension(fileExtension)
     if (extensionFileError) {
-      return onFileUploadError(extensionFileError);
+      return onFileUploadError(extensionFileError)
     }
 
     if (isFileSizeExceeded(file)) {
       return onFileUploadError(
-        `File size exceeded. Limit is ${fileSizeLimit / 1024 / 1024} MB`,
-      );
+        `File size exceeded. Limit is ${fileSizeLimit / 1024 / 1024} MB`
+      )
     }
 
-    await onFileUpload(file);
-  };
+    await onFileUpload(file)
+  }
 
   return (
     <div className="self-stretch">
@@ -91,7 +93,7 @@ export default function FileUploader({
         className={cn(
           buttonVariants({ variant: "secondary", size: "icon" }),
           "cursor-pointer",
-          uploading && "opacity-50",
+          uploading && "opacity-50"
         )}
       >
         {uploading ? (
@@ -101,5 +103,5 @@ export default function FileUploader({
         )}
       </label>
     </div>
-  );
+  )
 }
